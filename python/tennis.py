@@ -13,18 +13,22 @@ class TennisGame2:
         else:
             self.P2Score()
 
-    def score(self):
+    def equal_score_less_than_three(self, p1points, p2points):
         result = ""
-        if (self.p1points == self.p2points and self.p1points < 3):
-            if (self.p1points==0):
+        if (p1points == p2points and p1points < 3):
+            if (p1points==0):
                 result = "Love"
-            if (self.p1points==1):
+            if (p1points==1):
                 result = "Fifteen"
-            if (self.p1points==2):
+            if (p1points==2):
                 result = "Thirty"
             result += "-All"
-        if (self.p1points==self.p2points and self.p1points>2):
+        if (p1points==p2points and p1points>2):
             result = "Deuce"
+        return result
+
+    def score(self):
+        result = self.equal_score_less_than_three(self.p1points, self.p2points)
 
         P1res = ""
         P2res = ""
